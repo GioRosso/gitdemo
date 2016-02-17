@@ -1,0 +1,15 @@
+<h2> NEW Product </h2>
+
+<%= form_for(@product) do |form| %>
+<!-- new_product je prefix iz rake routes -->
+    <%= form.label :name %><br/>
+    <%= form.text_field :name %>
+    <br/><br/>
+    <%= form.label :price %><br/>
+    <%= form.text_field :price %>
+    <br/><br/>
+    <%= form.label :description %><br/>
+    <%= form.text_area :description %>
+    <br/><br/>
+    <%= form.submit 'Poćeraj' %>
+<% end %>

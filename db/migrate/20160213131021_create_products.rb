@@ -1,4 +1,5 @@
 class CreateProducts < ActiveRecord::Migration
+    
   def change
     create_table :products do |table|
       table.integer :price
@@ -8,4 +9,5 @@ class CreateProducts < ActiveRecord::Migration
       table.timestamps null: false
     end
   end
+  
 end

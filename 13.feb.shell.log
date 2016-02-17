@@ -1,0 +1,52 @@
+rusmir@linux-zzz7:~> cd gitdemo
+rusmir@linux-zzz7:~/gitdemo> git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   .directory
+        deleted:    app/controllers/.products_controller.rb.kate-swp
+        modified:   app/controllers/products_controller.rb
+        modified:   app/views/home/index.html.erb
+        modified:   config/routes.rb
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        app/models/.product.rb.kate-swp
+        app/views/products/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+rusmir@linux-zzz7:~/gitdemo> git add .
+rusmir@linux-zzz7:~/gitdemo> git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   .directory
+        deleted:    app/controllers/.products_controller.rb.kate-swp
+        modified:   app/controllers/products_controller.rb
+        new file:   app/models/.product.rb.kate-swp
+        modified:   app/views/home/index.html.erb
+        new file:   app/views/products/index.html.erb
+        modified:   config/routes.rb
+
+rusmir@linux-zzz7:~/gitdemo> git commit -m "Prvi put u bazi - V4"
+[master 4d73e29] Prvi put u bazi - V4
+ 7 files changed, 9 insertions(+), 4 deletions(-)
+ delete mode 100644 app/controllers/.products_controller.rb.kate-swp
+ create mode 100644 app/models/.product.rb.kate-swp                                      
+ create mode 100644 app/views/products/index.html.erb                                    
+rusmir@linux-zzz7:~/gitdemo> git push origin master                                      
+Username for 'https://github.com': GioRosso                                              
+Password for 'https://GioRosso@github.com':                                              
+Counting objects: 15, done.                                                              
+Compressing objects: 100% (10/10), done.                                                 
+Writing objects: 100% (15/15), 1.33 KiB | 0 bytes/s, done.                               
+Total 15 (delta 4), reused 0 (delta 0)                                                   
+To https://github.com/GioRosso/gitdemo.git                                               
+   cc980e0..4d73e29  master -> master                                                    
+rusmir@linux-zzz7:~/gitdemo>                                                             
