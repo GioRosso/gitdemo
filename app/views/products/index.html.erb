@@ -1,5 +1,6 @@
 <h1> PRODUCTS PAGE </h1> 
-
+<%= link_to 'New Product', new_product_path() %>
+<br>
 <% unless flash[:notice].nil? %>
     <div><%= flash[:notice] %>
 <% end %>
@@ -18,14 +19,15 @@
 
 
 
-<table cellspacing="2" cellpadding="5">
-<tr><td bgcolor="#FF9933">ID</td>
-<td bgcolor="#FF9933">Price</td>
-<td bgcolor="#FF9933">Name</td><td bgcolor="#FF9933">Description</td>
+<table cellspacing="2" cellpadding="5" width="100%">
+<tr widht="5%"><td bgcolor="#FF9933"><strong>ID</strong></td>
+<td bgcolor="#FF9933"><strong>Price</strong></td>
+<td bgcolor="#FF9933"><strong>Name<strong></td>
+<td bgcolor="#FF9933"><strong>Description<strong></td>
 <td bgcolor="#FF9933">Actions</td></tr>
 <% @products.each do |product|%>
     <tr>
-    <td><%= product.id %></td>
+    <td bgcolor="#FF9966"><%= product.id %></td>
     <td><%= product.price %></td>
     <td><%= product.name %></td>
     <td><%= product.description %></td>
@@ -37,5 +39,9 @@
     </tr>
     
 <% end %>
-
+<tr><td bgcolor="#FF9933"><strong>&nbsp;</strong></td>
+<td bgcolor="#FF9933"><strong>&nbsp;</strong></td>
+<td bgcolor="#FF9933"><strong>&nbsp;<strong></td>
+<td bgcolor="#FF9933"><strong>&nbsp;<strong></td>
+<td bgcolor="#FF9933">&nbsp;</td></tr>
 </table>

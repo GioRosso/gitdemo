@@ -2,6 +2,14 @@
 
 <%= form_for(@product) do |form| %>
 
+<% unless @product.errors.empty? %>
+    <ul style="border: 1px solid black; padding:10px;">
+    <% @product.errors.full_messages.each do |message| %>
+    <li> <%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <!-- new_product je prefix iz rake routes -->
     <%= form.label :name %><br/>
     <%= form.text_field :name %>
