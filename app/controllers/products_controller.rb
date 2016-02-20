@@ -26,6 +26,30 @@ class ProductsController < ApplicationController
         
     end
     
+    def edit
+        @product = Product.find(params[:id])
+    end
+    
+    def update
+    
+        @product = Product.find(params[:id])
+        if @product.update_attributes(product_params)
+            redirect_to(products_path(@product))
+        else
+           flash[:error] = 'Neuspješno ažuriranje proizvoda'
+           render :edit
+        end
+    end
+    
+    def destroy
+        @product = Product.find(params[:id])
+        product_name = @product.name
+        @product.destroy
+        flash[:notice] = "Uspješno ste obrisali: #{product_name}!"
+        redirect_to products_path
+    end
+    
+    
     
     
     def product_params

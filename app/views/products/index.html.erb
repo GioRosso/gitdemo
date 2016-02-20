@@ -1,5 +1,10 @@
 <h1> PRODUCTS PAGE </h1> 
 
+<% unless flash[:notice].nil? %>
+    <div><%= flash[:notice] %>
+<% end %>
+<br><br>
+
 <h2> Total products: <%= @products_count %></h2>
 
 <% if @products_count > 5 %>
@@ -10,8 +15,27 @@
 
 
 <h2>PRODUCT LIST</h2>
+
+
+
+<table cellspacing="2" cellpadding="5">
+<tr><td bgcolor="#FF9933">ID</td>
+<td bgcolor="#FF9933">Price</td>
+<td bgcolor="#FF9933">Name</td><td bgcolor="#FF9933">Description</td>
+<td bgcolor="#FF9933">Actions</td></tr>
 <% @products.each do |product|%>
-    <div>ID: <%= product.id %>, Price: <%= product.price %>, Name: <%= product.name %>, <%= product.description %></div>
-<%  %>
+    <tr>
+    <td><%= product.id %></td>
+    <td><%= product.price %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td>
+    <%= link_to 'Details', product_path(product) %> &bull;
+    <%= link_to 'Edit', edit_product_path(product) %> &bull;
+    <%= link_to 'Delete', product_path(product), method: :delete %></td>
+    
+    </tr>
+    
 <% end %>
 
+</table>

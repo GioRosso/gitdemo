@@ -1,4 +1,4 @@
-<h2> NEW Product </h2>
+<h2> EDIT product </h2>
 
 <%= form_for(@product) do |form| %>
 
@@ -12,6 +12,8 @@
     <%= form.label :description %><br/>
     <%= form.text_area :description %>
     <br/><br/>
-    <%= form.submit 'Dodaj proizvod' %>
+    <%= form.submit 'Update' %>
 
 <% end %>
+
+
