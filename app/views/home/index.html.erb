@@ -1,20 +1,7 @@
- 
-<h1 align="center"> WELCOME TO HOMEPAGE </h1>
-<br/><br/>
 <div align="center">
-<%= link_to 'Products', products_path() %>
-&raquo; <%= link_to 'New Product', new_product_path() %>
-
-
-<% if session[:user] == nil %>
-&raquo; <%= link_to 'Register User', register_path() %>
-&raquo; <%= link_to 'Sign in', login_path() %>
-<% else %>
-&raquo; <%= link_to "Logout", logout_path %>
-<% end %>    
-<!-- <% unless session[:user].nil? %>
-  <%= link_to "Logout", logout_path %>
-<% end %> -->
+<img src="http://www.unixstickers.com/image/data/buttons/png/rails.png" height="300" width="300"/>
+</div>
+<br/><br/>
 
 <% unless flash[:notice].nil? %>
   <h2><%= flash[:notice] %></h2>

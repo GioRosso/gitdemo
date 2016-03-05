@@ -21,17 +21,28 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
 
     if @user && @user.authenticate(params[:password])
-      session[:user] = @user.id
-      flash[:notice] = 'User authenticated :)'
-      redirect_to root_path
+        
+        if params[:remember_me]
+            cookies[:user] = { value: @user.id, expires: 1.day.from_now }
+        else
+            session[:user] = @user.id
+        end
+        flash[:notice] = 'User authenticated :)'
+        redirect_to root_path
     else
-      flash[:error] = "Invalid email or password :'("
-      render :new
+        flash[:error] = "Invalid email or password :'("
+        redirect_to login_path
     end
+    
   end
 
   def destroy
-    session[:user] = nil
-    redirect_to root_path
+      if session[:user]
+          session[:user] = nil
+      else
+          cookies.delete(:user)
+      end
+      redirect_to root_path
   end
+  
 end

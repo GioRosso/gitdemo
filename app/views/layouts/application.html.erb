@@ -6,7 +6,28 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background-color:#EEEEEE">
+<body style="background-color:#EEEEEE; padding:0; margin:0; border:0;">
+
+<div id="meni" style="background-color:#000; text-align:right; color:#FFF !important; padding:10px;">
+<div id="title" style="font-weight:bolder; font-family:Impact; float:left;">ROR 387 - First application</div>
+
+
+<style>#meni a {color:#FFF; text-decoration:none; }</style>
+<% if logged_in_user %>
+  [ <span style="color:yellow;"><%= logged_in_user.username %></span> ] &bull;
+<%= link_to "Home", root_path %> &bull;
+<%= link_to 'Products', products_path() %> &bull;
+ 
+ <%= link_to logout_path do %>
+ <%= image_tag 'logout.png', size: '16x16' %>
+ <% end %>
+ 
+ <% else %>
+<%= link_to "Sign In", login_path %>
+&bull;
+<%= link_to "Register", register_path %>
+<% end %>
+</div>
 
 <%= yield %>
 

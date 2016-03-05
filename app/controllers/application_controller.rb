@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def logged_in_user
-      @current_user ||= User.find(session[:user]) if session[:user]
-#   if session[:user]
-#       @current_user = User.find(session[:user])
-#   end
+      # @current_user ||= User.find(session[:user]) if session[:user]
+      @current_user = find_user
+      # if session[:user]
+      # @current_user = User.find(session[:user])
+      # end
   
   end
   
@@ -18,5 +19,14 @@ class ApplicationController < ActionController::Base
   def authorize
         redirect_to login_path unless logged_in_user
   end
+  
+  def find_user
+      if session[:user]
+          User.find(session[:user])
+      elsif cookies[:user]
+          User.find(cookies[:user])
+      end
+  end
+  
   
 end
