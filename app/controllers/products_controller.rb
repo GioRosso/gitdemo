@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
     
+    before_action :authorize
+    
     def index
     @products_count = Product.count
     @products = Product.all
@@ -50,12 +52,11 @@ class ProductsController < ApplicationController
     end
     
     
-    
+    private
     
     def product_params
         params.require(:product).permit(:name, :price, :description)    
     end
-    
-    private :product_params
+
     
 end

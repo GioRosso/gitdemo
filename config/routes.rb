@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
     
+    
     resources :products
+    resources :users, only: [:create]
+    
+    get 'register' => 'users#new', as: 'register'
+    
+    get 'login' => 'sessions#new', as: 'login'
+    post 'login' => 'sessions#create'
+    get 'logout' => 'sessions#destroy', as: 'logout'
+    
     root 'home#index'
     
     

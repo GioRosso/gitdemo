@@ -1,0 +1,30 @@
+<h1>REGISTER PAGE</h1>
+<br />
+<style>
+input {height:28px;}
+</style>
+<% unless @user.errors.empty? %>
+    <ul style="border: 1px solid #CCC; background-color:#FFF; border-radius: 5px">
+    <% @user.errors.full_messages.each do |message| %>
+    <li> <%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+<br>
+
+<%= form_for(@user, url: users_path) do |form| %>
+<!-- new_product je prefix iz rake routes -->
+    <%= form.label :username %><br/>
+    <%= form.text_field :username %>
+    <br/><br/>
+    <%= form.label :email %><br/>
+    <%= form.text_field :email %>
+    <br/><br/>
+    <%= form.label :password %><br/>
+    <%= form.password_field :password %>
+    <br/><br/>
+    <%= form.label :password_confirmation %><br/>
+    <%= form.password_field :password_confirmation %>
+    <br/><br/>
+    <%= form.submit ' Register! ' %>
+<% end %>
