@@ -5,18 +5,27 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
 </head>
 <body style="background-color:#EEEEEE; padding:0; margin:0; border:0;">
 
 <div id="meni" style="background-color:#000; text-align:right; color:#FFF !important; padding:10px;">
-<div id="title" style="font-weight:bolder; font-family:Impact; float:left;">ROR 387 - First application</div>
+<div id="title" style="font-weight:bolder; font-size:19; font-weight:700; float:left;"><span style="color:#FF0000;">ROR 387</span> - First application</div>
 
 
-<style>#meni a {color:#FFF; text-decoration:none; }</style>
+<style>
+#meni a {color:#FFF; text-decoration:none; }
+#meni a:hover { color:#FF0000; }
+</style>
 <% if logged_in_user %>
-  [ <span style="color:yellow;"><%= logged_in_user.username %></span> ] &bull;
+  [ <span style="color:yellow; font-weight:bold;"><%= logged_in_user.username %></span> ] &bull;
 <%= link_to "Home", root_path %> &bull;
 <%= link_to 'Products', products_path() %> &bull;
+<%= link_to 'Orders', orders_path() %> &bull; &bull; &bull;
+<%= link_to 'New Product', new_product_path() %> &bull;
+<%= link_to 'New Order', new_order_path() %> &bull;
  
  <%= link_to logout_path do %>
  <%= image_tag 'logout.png', size: '16x16' %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     
     resources :products
     resources :users, only: [:create]
+    resources :orders, only: [:index, :new, :create]
     
     get 'register' => 'users#new', as: 'register'
     

@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+body { font-family: 'Open Sans Condensed', sans-serif; }
+
+input, textarea { height:30px; font-size:18px; font-family:Arial; display:block; margin-bottom:15px; }

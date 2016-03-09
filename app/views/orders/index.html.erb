@@ -1,0 +1,13 @@
+<div id="order" style="padding:20px; font-family:Tahoma;">
+<h1> ORDERS </h1>
+
+<% @order.each do |order| %>
+ID: <%= order.id %> <br>
+Proizvod: <%= linko_to order.product.name, orders_path(product_id: or %> <br>
+Kupac: <%= link_to order.user.username, orders_path(user_id: order.user.id) %>
+
+<p> &nbsp; </p>
+<% end %>
+
+
+</div>

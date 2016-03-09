@@ -1,3 +1,6 @@
+
+<div id="loginFrame" style="padding:20px;">
+
 <h2> NEW Product </h2>
 
 <%= form_for(@product) do |form| %>
@@ -11,15 +14,18 @@
 <% end %>
 
 <!-- new_product je prefix iz rake routes -->
-    <%= form.label :name %><br/>
+    <%= form.label :name %>
     <%= form.text_field :name %>
-    <br/><br/>
-    <%= form.label :price %><br/>
+    <br/>
+    <%= form.label :price %>
     <%= form.text_field :price %>
-    <br/><br/>
-    <%= form.label :description %><br/>
+    <br/>
+    <%= form.label :description %>
     <%= form.text_area :description %>
-    <br/><br/>
+    <br/>
+    <br/>
     <%= form.submit 'Dodaj proizvod' %>
 
 <% end %>
+
+</div>

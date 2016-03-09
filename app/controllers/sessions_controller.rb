@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
       
       
     @user = User.find_by_email(params[:email])
+    binding.pry
 
     if @user && @user.authenticate(params[:password])
         
@@ -27,10 +28,12 @@ class SessionsController < ApplicationController
         else
             session[:user] = @user.id
         end
+        
         flash[:notice] = 'User authenticated :)'
         redirect_to root_path
     else
         flash[:error] = "Invalid email or password :'("
+        
         redirect_to login_path
     end
     

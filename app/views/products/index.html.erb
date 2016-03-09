@@ -17,14 +17,15 @@
 
 <h2>PRODUCT LIST</h2>
 
-
+<style> .tblHead { background-color:#FF0000; color: #FFFFFF; } </style>
 
 <table cellspacing="2" cellpadding="5" width="100%">
-<tr widht="5%"><td bgcolor="#FF9933"><strong>ID</strong></td>
-<td bgcolor="#FF9933"><strong>Price</strong></td>
-<td bgcolor="#FF9933"><strong>Name<strong></td>
-<td bgcolor="#FF9933"><strong>Description<strong></td>
-<td bgcolor="#FF9933">Actions</td></tr>
+<tr widht="5%">
+<td class="tblHead">ID</td>
+<td class="tblHead">Price</td>
+<td class="tblHead">Name</td>
+<td class="tblHead">Description</td>
+<td class="tblHead">Actions</td></tr>
 <% @products.each do |product|%>
     <tr>
     <td bgcolor="#FF9966"><%= product.id %></td>

@@ -1,0 +1,15 @@
+<div id="order" style="padding:20px; font-family:Tahoma;">
+
+<h1> Nova narudžba </h1>
+
+  <%= form_for(@order) do |form| %>
+  <%= form.label :quantity %>
+  <%= form.text_field :quantity %>
+
+  <%= form.label :product %>
+  <%= form.collection_select(:product_id, Product.all, :id, :name) %>
+
+  <%= form.submit 'Buy' %>
+  <% end %>
+
+</div>
