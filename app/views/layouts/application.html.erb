@@ -21,20 +21,20 @@
 </style>
 <% if logged_in_user %>
   [ <span style="color:yellow; font-weight:bold;"><%= logged_in_user.username %></span> ] &bull;
-<%= link_to "Home", root_path %> &bull;
-<%= link_to 'Products', products_path() %> &bull;
-<%= link_to 'Orders', orders_path() %> &bull; &bull; &bull;
-<%= link_to 'New Product', new_product_path() %> &bull;
-<%= link_to 'New Order', new_order_path() %> &bull;
+<%= link_to "Početna", root_path %> &bull;
+<%= link_to 'Proizvodi', products_path() %> &bull;
+<%= link_to 'Narudžbe', orders_path() %> &bull; &bull; &bull;
+<%= link_to 'Dodaj proizvod', new_product_path() %> &bull;
+<%= link_to 'Nova narudžba', new_order_path() %> &bull;
  
  <%= link_to logout_path do %>
  <%= image_tag 'logout.png', size: '16x16' %>
  <% end %>
  
  <% else %>
-<%= link_to "Sign In", login_path %>
+<%= link_to "Prijava", login_path %>
 &bull;
-<%= link_to "Register", register_path %>
+<%= link_to "Registracija", register_path %>
 <% end %>
 </div>
 

@@ -1,11 +1,12 @@
 <div align="center">
+<% unless flash[:notice].nil? %>
+  <h2 align="center"><%= flash[:notice] %></h2>
+<% end %>
+
 <img src="http://www.unixstickers.com/image/data/buttons/png/rails.png" height="300" width="300"/>
 </div>
 <br/><br/>
 
-<% unless flash[:notice].nil? %>
-  <h2><%= flash[:notice] %></h2>
-<% end %>
 
 
 

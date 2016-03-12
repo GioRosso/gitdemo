@@ -1,13 +1,36 @@
-<div id="order" style="padding:20px; font-family:Tahoma;">
-<h1> ORDERS </h1>
+<div id="order" style="padding:20px;">
+<h1> Lista narudžbi </h1>
+<style type="text/css">
+#headTable {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#restTable {
+    background-color: #DEDEDE;
+    color: #000;
+    font-weight: normal;
+}
+</style>
 
-<% @order.each do |order| %>
-ID: <%= order.id %> <br>
-Proizvod: <%= linko_to order.product.name, orders_path(product_id: or %> <br>
-Kupac: <%= link_to order.user.username, orders_path(user_id: order.user.id) %>
+<table width="100%" cellpadding="2" cellspacing="2">
+<tr id="headTable">
+<td>ID</td>
+<td>Proizvod</td>
+<td>Količina</td>
+<td>Kupac</td>
+<td>Cijena</td>
+<td style="padding-right:10px; text-align:right;">Ukupno</td>
+</tr>
+<% @orders.each do |order| %>
+<tr id="restTable">
+<td><%= order.id %></td>
+<td><%= link_to order.product.name, orders_path(product_id: order.product.id) %></td>
+<td><%= order.quantity %></td>
+<td><%= link_to order.user.username, orders_path(user_id: order.user.id) %></td>
+<td><%= order.product.price %></td>
+<td style="padding-right:10px; text-align:right;"><%= order.product.price * order.quantity %></td>
+</tr>
 
-<p> &nbsp; </p>
 <% end %>
-
-
 </div>

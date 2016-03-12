@@ -3,7 +3,13 @@ class OrdersController < ApplicationController
   before_action :authorize
   
   def index
-      @order = Order.where(user_id: params[:user_id])
+    if params[:user_id]
+      @orders = Order.where(user_id: params[:user_id])
+    elsif params[:product_id]
+      @orders = Order.where(product_id: params[:product_id])  
+    else
+      @orders = Order.all
+    end
   end
   
     

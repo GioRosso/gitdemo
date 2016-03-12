@@ -1,23 +1,23 @@
-<h1> PRODUCTS PAGE </h1> 
-<%= link_to 'New Product', new_product_path() %>
-<br>
+<div style="padding:20px;">
+
+<h1> Proizvodi </h1> 
+<!-- <%= link_to 'Unesi novi proizvod', new_product_path() %> -->
 <% unless flash[:notice].nil? %>
     <div><%= flash[:notice] %>
 <% end %>
-<br><br>
 
-<h2> Total products: <%= @products_count %></h2>
+<h2> Ukupno proizvoda: <%= @products_count %></h2>
 
-<% if @products_count > 5 %>
+<!-- <% if @products_count > 5 %>
     <h2>Yes</h2>
 <% else %>
     <h2>No</h2>
 <% end %>
+-->
 
+<h2>Lista proizvoda</h2>
 
-<h2>PRODUCT LIST</h2>
-
-<style> .tblHead { background-color:#FF0000; color: #FFFFFF; } </style>
+<style> .tblHead { background-color:#FF0000; color: #FFFFFF; font-weight:bold; } </style>
 
 <table cellspacing="2" cellpadding="5" width="100%">
 <tr widht="5%">
@@ -46,3 +46,5 @@
 <td bgcolor="#FF9933"><strong>&nbsp;<strong></td>
 <td bgcolor="#FF9933">&nbsp;</td></tr>
 </table>
+
+</div>
