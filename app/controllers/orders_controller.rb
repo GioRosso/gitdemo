@@ -29,6 +29,11 @@ class OrdersController < ApplicationController
     end
   end
   
+  def destroy
+      Order.destroy(params[:id])
+      redirect_to orders_path
+  end
+  
   private
   
   def order_params

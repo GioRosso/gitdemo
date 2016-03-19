@@ -17,3 +17,7 @@
 body { font-family: 'Open Sans Condensed', sans-serif; }
 
 input, textarea { height:30px; font-size:18px; font-family:Arial; display:block; margin-bottom:15px; }
+
+textarea { font-size:18px; font-family:Arial; display:block; margin-bottom:15px; }
+
+.rusko_button { background-color:#00FFAA; border:0; font-family: 'Open Sans Condensed', sans-serif; height:34px; border-radius:6px; min-width:150px; }

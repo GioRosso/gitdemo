@@ -22,3 +22,12 @@
     Product.create(name: "Product #{index}", price: 1, description: "Test #{index}")
     # index += 1
 end
+
+
+User.create(
+  username: 'Admin',
+  email: 'admin@admin.com',
+  password: '12345',
+  password_confirmation: '12345',
+  role: 1
+)

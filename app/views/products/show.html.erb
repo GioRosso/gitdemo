@@ -1,2 +1,14 @@
- 
+<div style="padding:20px;">
+<h2>id: <%= @product.id %></h2>
+<h2>name: <%= @product.name %></h2>
+<h2>price: <%= @product.price %></h2>
+
 <h1> Product details for Product: <%= @product.description %> </h1>
+
+ <div style="border: 1px solid #CCCCCC"  id="reviews">
+<%= render 'reviews/review', reviews: @product.reviews %>
+ </div>
+ 
+<hr> <%= render 'review_form', product_id: @product.id  %>
+
+</div>

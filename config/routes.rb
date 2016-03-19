@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
     
     
-    resources :products
+    resources :products do
+    # get :stats, on: :member 
+      collection do
+        get :stats
+      end
+     
+     member do
+         get :stat
+     end
+    end
+    
     resources :users, only: [:create]
-    resources :orders, only: [:index, :new, :create]
+    resources :orders, only: [:index, :new, :create, :destroy]
+    resources :reviews, only: [:create]
     
     get 'register' => 'users#new', as: 'register'
     

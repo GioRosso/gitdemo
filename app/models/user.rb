@@ -5,7 +5,13 @@ class User < ActiveRecord::Base
     has_many :orders
     has_many :products, through: :orders, source: :product
     
+    has_many :reviews, dependent: :destroy
+    
     validates_presence_of :username, :email
+    
+    def admin?
+     role == 1
+    end
     
     
   # scope :with_email, ->(email){ where("email = ?", email) }

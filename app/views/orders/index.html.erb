@@ -21,15 +21,21 @@
 <td>Kupac</td>
 <td>Cijena</td>
 <td style="padding-right:10px; text-align:right;">Ukupno</td>
+<td> X </td>
 </tr>
 <% @orders.each do |order| %>
 <tr id="restTable">
 <td><%= order.id %></td>
 <td><%= link_to order.product.name, orders_path(product_id: order.product.id) %></td>
 <td><%= order.quantity %></td>
-<td><%= link_to order.user.username, orders_path(user_id: order.user.id) %></td>
+<td><%= link_to order.user.username, orders_path(user_id: order.user.id) %> [<%= order.user.role %>]</td>
 <td><%= order.product.price %></td>
 <td style="padding-right:10px; text-align:right;"><%= order.product.price * order.quantity %></td>
+<td>
+<% if order_belongs_to_logged_in_user?(logged_in_user,order.user) %>
+      <%= link_to 'Delete', order_path(order.id), method: :delete %></td>
+    <% end %>
+    </td>
 </tr>
 
 <% end %>

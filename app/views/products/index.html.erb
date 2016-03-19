@@ -14,32 +14,22 @@
     <h2>No</h2>
 <% end %>
 -->
-
-<h2>Lista proizvoda</h2>
+<!-- render partial: 'share/IMEFAJLA' -->
+<!-- <%= render partial: 'shared/page_heading', locals: {text: 'Products page' } %> -->
+<%= render 'shared/page_heading', text: "Na listi je trenutno #{@products_count} proizvoda." %>
 
 <style> .tblHead { background-color:#FF0000; color: #FFFFFF; font-weight:bold; } </style>
 
 <table cellspacing="2" cellpadding="5" width="100%">
 <tr widht="5%">
 <td class="tblHead">ID</td>
-<td class="tblHead">Price</td>
+<td class="tblHead"><%= link_to 'Price', products_path(sort: true), remote: true %></td>
 <td class="tblHead">Name</td>
 <td class="tblHead">Description</td>
 <td class="tblHead">Actions</td></tr>
-<% @products.each do |product|%>
-    <tr>
-    <td bgcolor="#FF9966"><%= product.id %></td>
-    <td><%= product.price %></td>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td>
-    <%= link_to 'Details', product_path(product) %> &bull;
-    <%= link_to 'Edit', edit_product_path(product) %> &bull;
-    <%= link_to 'Delete', product_path(product), method: :delete %></td>
-    
-    </tr>
-    
-<% end %>
+<!-- products partial templates -->
+<%= render 'products', products: @products %>
+
 <tr><td bgcolor="#FF9933"><strong>&nbsp;</strong></td>
 <td bgcolor="#FF9933"><strong>&nbsp;</strong></td>
 <td bgcolor="#FF9933"><strong>&nbsp;<strong></td>

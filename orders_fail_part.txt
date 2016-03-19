@@ -1,0 +1,8 @@
+<tr id="restTable">
+<td><%= order.id %></td>
+<td><%= link_to order.product.name, orders_path(product_id: order.product.id) %></td>
+<td><%= order.quantity %></td>
+<td><%= link_to order.user.username, orders_path(user_id: order.user.id) %></td>
+<td><%= order.product.price %></td>
+<td style="padding-right:10px; text-align:right;"><%= order.product.price * order.quantity %></td>
+</tr>

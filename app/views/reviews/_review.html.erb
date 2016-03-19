@@ -1,0 +1,7 @@
+
+ <% reviews.each do |review| %>
+<p style="padding:5px; background-color:#CACACA;" id="review-<%= review.id %>">
+<strong> <%= review.user.username %></strong> [<%= I18n.localize(review.created_at, format: "%d. %B %Y.") %>]: <%= review.content %> 
+</p> 
+ <% end %>
+
